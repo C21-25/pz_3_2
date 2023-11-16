@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DOM взаємодія</title>
+</head>
+<body>
+    <!-- Додамо декілька елементів різних типів -->
+    <h1 id="mainTitle">Ласкаво просимо!</h1>
+    <p class="content">Це приклад взаємодії з DOM.</p>
+    <ul>
+        <li>Елемент 1</li>
+        <li>Елемент 2</li>
+        <li>Елемент 3</li>
+    </ul>
+    <a href="#" id="myLink">Клацніть тут</a>
+
+    <script>
+        // Завдання 1: Змінити стилі та текст елементів
+        var title = document.getElementById("mainTitle");
+        title.style.color = "blue";
+        title.style.fontFamily = "Arial";
+        title.innerHTML = "Вітаю на моєму сайті!";
+
+        var content = document.querySelector(".content");
+        content.style.fontSize = "18px";
+        content.innerHTML = "Це новий текст для абзацу.";
+
+        var listItems = document.querySelectorAll("ul li");
+        for (var i = 0; i < listItems.length; i++) {
+            listItems[i].style.listStyle = "square inside";
+        }
+
+        // Завдання 2: Навігація по документу та виведення інформації про структуру
+        var link = document.getElementById("myLink");
+        var parent = link.parentNode; // Отримуємо батьківський елемент
+        var nextElement = link.nextElementSibling; // Отримуємо наступний елемент
+        var previousElement = link.previousElementSibling; // Отримуємо попередній елемент
+
+        console.log("Батьківський елемент посилання: ", parent.tagName);
+        console.log("Наступний елемент після посилання: ", nextElement.tagName);
+        console.log("Попередній елемент перед посиланням: ", previousElement.tagName);
+
+        // Завдання 3: Додавання обробників подій
+        link.addEventListener("click", function (event) {
+            event.preventDefault(); // Забороняємо перехід за посиланням
+            alert("Ви клікнули на посилання!");
+        });
+    </script>
+</body>
+</html>
